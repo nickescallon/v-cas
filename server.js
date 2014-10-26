@@ -1,19 +1,16 @@
 var express = require('express');
 var http = require('http');
-var path = require('path');
 
 var app = express();
 
-app.set('port', 3000); //change to process.ENV
-app.use(express.static(path.join(__dirname, 'public')));
+app.set('port', process.env.PORT || 3000);
 
-//routes
+app.use(express.static(__dirname + '/public'));
+app.use('/dist',  express.static(__dirname + '/dist'));
 
-//catchAll
-app.get('*', function (req, res) {
-  res.sendFile('/public/index.html');
-});
+//add routes
 
+//server
 var server = http.createServer(app);
 server.listen(app.get('port'), function() {
   console.log('app listenting on port: ' + app.get('port'));
