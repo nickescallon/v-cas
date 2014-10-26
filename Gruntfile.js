@@ -1,9 +1,9 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    jsAppDir: 'public/javascripts/app/',
+    jsAppDir: 'public/js/app/',
     jsVendorDir: 'bower_components/',
-    jsDistDir: 'dist/javascripts/',
+    jsDistDir: 'dist/js/',
     cssDir: 'public/css/',
     cssDistDir: 'dist/stylesheets/',
     pkg: grunt.file.readJSON('package.json'),
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
         options: {
           separator: ';'
         },
-        src: ['<%=jsVendorDir%>**/*.min.js'],
+        src: ['<%=jsVendorDir%>**/*.js', '!<%=jsVendorDir%>**/*.min.js'],
         dest: '<%=jsDistDir%>vendor.js'
       },
       css: {
