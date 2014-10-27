@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     jsAppDir: 'public/js/app/',
     jsVendorDir: 'bower_components/',
     jsDistDir: 'dist/js/',
-    cssDir: 'public/css/',
+    scssDir: 'public/css/',
     cssDistDir: 'dist/stylesheets/',
     pkg: grunt.file.readJSON('package.json'),
     concat: {
@@ -22,10 +22,10 @@ module.exports = function(grunt) {
         src: ['<%=jsVendorDir%>**/*.js', '!<%=jsVendorDir%>**/*.min.js'],
         dest: '<%=jsDistDir%>vendor.js'
       },
-      css: {
-        src: ['<%=cssDir%>*.css'],
-        dest: '<%=cssDistDir%><%= pkg.name %>.css'
-      }
+      scss: {
+        src: ['<%=scssDir%>*.scss'],
+        dest: '<%=cssDistDir%><%= pkg.name %>.scss'
+      },
     },
     uglify: {
       options: {
@@ -43,25 +43,35 @@ module.exports = function(grunt) {
           banner: '/*! <%= pkg.name %> <%=grunt.template.today("dd-mm-yyyy") %> */\n'
         },
         files: {
-          '<%=cssDistDir%><%= pkg.name %>.min.css': ['<%= concat.css.dest %>']
+          '<%=cssDistDir%><%= pkg.name %>.min.css': ['<%= concat.scss.dest %>']
+        }
+      }
+    },
+    sass: {
+      dist: {
+        files: {
+          '<%=cssDistDir%><%= pkg.name %>.css' : '<%=cssDistDir%><%= pkg.name %>.scss'
         }
       }
     },
     watch: {
-    files: ['<%=jsDir%>*.js', '<%=cssDir%>*.css'],
-    tasks: ['concat', 'uglify', 'cssmin']
+      // TODO: Do these tasks conditionally?
+      files: ['<%=jsDir%>*.js', '<%=jsVendorDir%>**/*.js', '<%=scssDir%>*.scss'],
+      tasks: ['concat', 'sass', 'uglify', 'cssmin']
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', [
     'concat',
     'uglify',
     'cssmin',
+    'sass',
     'watch'
   ]);
 

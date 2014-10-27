@@ -35,5 +35,9 @@ node_modules
 ### Bower ###
 **/bower_components/
 
+### SASS ###
+.sass-cache
+
 ### Generated Assets ###
 dist
+
