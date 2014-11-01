@@ -1,5 +1,6 @@
 <html>
 <head>
+  <base href="/">
   <link href="/dist/stylesheets/v-cas.css" media="screen" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -10,14 +11,16 @@
 
   <div class="spacer"></div>
 
-  <div class="main-container" ng-app>
+  <div class="main-container" ng-app="vCas">
 
-    <nav>
-      <input ng-model="test"/>
-      {{test}}
+    <nav ng-controller="navController as navController">
+      <div ng-repeat="option in navController.navOptions" ng-click="navController.routeTo(option)">
+        {{option}}
+      </div>
     </nav>
 
     <div class="content">
+      <ng-view/>
     </div>
 
   </div>

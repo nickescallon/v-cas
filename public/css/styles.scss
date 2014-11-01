@@ -47,3 +47,23 @@ footer {
   height: 20px;
   background: $color-secondary;
 }
+
+// For testing...
+.test {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: yellow; 
+}
+
+.otherwise {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: blue;  
+}
+

@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    jsAppDir: 'public/js/app/',
+    jsAppDir: 'public/js/',
     jsVendorDir: 'bower_components/',
     jsDistDir: 'dist/js/',
     scssDir: 'public/css/',
@@ -12,19 +12,19 @@ module.exports = function(grunt) {
         options: {
           separator: ';'
         },
-        src: ['<%=jsAppDir%>*.js'],
+        src: ['<%=jsAppDir%>*.js', '<%=jsAppDir%>**/*.js'],
         dest: '<%=jsDistDir%><%= pkg.name %>.js'
       },
       vendorJs : {
         options: {
           separator: ';'
         },
-        src: ['<%=jsVendorDir%>**/*.js', '!<%=jsVendorDir%>**/*.min.js'],
+        src: ['<%=jsVendorDir%>angular/*.js', '<%=jsVendorDir%>angular-route/*.js', '!<%=jsVendorDir%>**/*.min.js'],
         dest: '<%=jsDistDir%>vendor.js'
       },
       scss: {
         src: ['<%=scssDir%>*.scss'],
-        dest: '<%=cssDistDir%><%= pkg.name %>.scss'
+        dest: '<%=cssDistDir%><%= pkg.name %>.css'
       },
     },
     uglify: {
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         files: {
-          '<%=cssDistDir%><%= pkg.name %>.css' : '<%=cssDistDir%><%= pkg.name %>.scss'
+          '<%=cssDistDir%><%= pkg.name %>.css' : '<%=cssDistDir%><%= pkg.name %>.css'
         }
       }
     },
