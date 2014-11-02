@@ -56,7 +56,7 @@ module.exports = function(grunt) {
     },
     watch: {
       // TODO: Do these tasks conditionally?
-      files: ['<%=jsDir%>*.js', '<%=jsVendorDir%>**/*.js', '<%=scssDir%>*.scss'],
+      files: ['<%=jsAppDir%>**/*.js', '<%=jsVendorDir%>**/*.js', '<%=scssDir%>*.scss'],
       tasks: ['concat', 'sass', 'uglify', 'cssmin']
     }
   });
