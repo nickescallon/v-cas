@@ -6,11 +6,11 @@
 
   function navService() {
     var pages = [
-      'About',
-      'Style',
-      'Gallery',
-      'Services',
-      'Contact'
+      'ABOUT',
+      'STYLE',
+      'GALLERY',
+      'SERVICES',
+      'CONTACT'
     ];
 
     var service = {

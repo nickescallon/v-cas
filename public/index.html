@@ -13,8 +13,8 @@
 
   <div class="main-container">
 
-    <nav ng-cloak ng-controller="navController as navController">
-      <div ng-repeat="option in navController.navOptions" ng-click="navController.routeTo(option)" ng-class="{ selected: navController.isCurrentPage(option) }">
+    <nav ng-cloak ng-controller="navController as nc">
+      <div class="row" ng-repeat="option in nc.navOptions" ng-click="nc.routeTo(option)" ng-class="{ selected: nc.isCurrentPage(option) }">
         {{option}}
       </div>
     </nav>

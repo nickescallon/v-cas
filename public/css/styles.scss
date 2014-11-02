@@ -1,11 +1,13 @@
 $color-primary: #e9e8e6;
 $color-secondary: #c6d1d5;
+$color-font-primary: #4f4f4f;
 
 body {
   margin: 0;
   padding: 0;
   border: 0;
   background: $color-primary;
+  font-family: garamond;
 }
 
 header {
@@ -29,6 +31,17 @@ footer {
     left: 10px;
     width: 175px;
     background: $color-primary;
+
+    .row {
+      padding: 20px 0px;
+      color: $color-font-primary;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .selected {
+      color: $color-secondary;
+    }
   }
 
   .content {
@@ -39,10 +52,6 @@ footer {
     right: 10px;
     background: $color-secondary;
   }
-}
-
-.selected {
-  color: $color-secondary;
 }
 
 .spacer {
