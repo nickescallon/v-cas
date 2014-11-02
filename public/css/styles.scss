@@ -28,7 +28,7 @@ footer {
     bottom: 0;
     left: 10px;
     width: 175px;
-    background: $color-secondary;
+    background: $color-primary;
   }
 
   .content {
@@ -41,11 +41,20 @@ footer {
   }
 }
 
+.selected {
+  color: $color-secondary;
+}
+
 .spacer {
   margin-top: 10px;
   margin-bottom: 10px;
   height: 20px;
   background: $color-secondary;
+}
+
+// So we can ng-cloak without loading angular in the header
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
 }
 
 // For testing...
@@ -55,7 +64,7 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  background: yellow; 
+  background: $color-secondary;
 }
 
 .otherwise {
@@ -64,6 +73,6 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  background: blue;  
+  background: $color-secondary;
 }
 
