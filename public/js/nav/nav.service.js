@@ -5,13 +5,16 @@
   .factory('navService', navService);
 
   function navService() {
-    var pages = [
-      'ABOUT',
-      'STYLE',
-      'GALLERY',
-      'SERVICES',
-      'CONTACT'
-    ];
+    var pages = {
+      all: [
+        'ABOUT',
+        'STYLE',
+        'GALLERY',
+        'SERVICES',
+        'CONTACT'
+      ],
+      current: ''
+    };
 
     var service = {
       pages: pages

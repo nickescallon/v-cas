@@ -6,7 +6,7 @@
 <body ng-app="vCas">
 
   <header>
-    Veronica Castellucci
+    <a href="/">Veronica Castellucci</a>
   </header>
 
   <div class="spacer"></div>
@@ -15,12 +15,12 @@
 
     <nav ng-cloak ng-controller="navController as nc">
       <div class="primary">
-        <div class="row" ng-repeat="page in nc.pages" ng-click="nc.routeTo(page)" ng-class="{ selected: nc.isCurrentPage(page) }">
+        <div class="row" ng-repeat="page in nc.pages.all" ng-click="nc.routeTo(page)" ng-class="{ selected: nc.isCurrentPage(page) }">
           {{page}}
         </div>
       </div>
 
-      <div class="secondary" ng-show="nc.currentPage">
+      <div class="secondary " ng-show="nc.pages.current">
         <div class="content">
           something
         </div>

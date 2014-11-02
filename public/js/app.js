@@ -4,6 +4,7 @@
   angular.module('vCas', [
     //modules
     'ngRoute',
+    'ngAnimate',
 
     //services
     'vCas.services.nav',
@@ -12,8 +13,12 @@
     'vCas.controllers.home',
     'vCas.controllers.nav'
   ])
+  .config(config)
+  .run(run);
 
-  .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+  config.$inject = ['$locationProvider', '$routeProvider']
+
+  function config($locationProvider, $routeProvider) {
     $locationProvider.html5Mode(true);
 
     //Routes
@@ -26,6 +31,14 @@
       .otherwise({
         template: '<div class="otherwise">Otherwise!</div>'
       });
-  }]);
+  };
+
+  run.$inject = ['$location', '$rootScope', 'navService']
+
+  function run($location, $rootScope, navService) {
+    $rootScope.$on('$routeChangeSuccess', function() {
+      navService.pages.current = $location.path().substr(1).toLowerCase();
+    });
+  };
 
 })();

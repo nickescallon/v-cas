@@ -9,25 +9,25 @@
   function navController($location, $routeParams, navService) {
     var Ctrl = this;
 
-    Ctrl.currentPage = $location.path().substr(1).toLowerCase();
+    Ctrl.pages = navService.pages
     Ctrl.isCurrentPage = isCurrentPage
-    Ctrl.pages = navService.pages;
     Ctrl.routeTo = routeTo;
 
     function isCurrentPage(page) {
-      return page.toLowerCase() === Ctrl.currentPage;
+      return page.toLowerCase() === Ctrl.pages.current;
     };
 
     function routeTo(path) {
       if (path) {
         path = path.toLowerCase();
 
-        if ( path !== Ctrl.currentPage ) {
-          Ctrl.currentPage = path;
+        if ( path !== Ctrl.pages.current ) {
+          Ctrl.pages.current = path;
           $location.path(path);
         }
       }
     };
+
   };
 
 })();
