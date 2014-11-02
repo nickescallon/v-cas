@@ -19,7 +19,11 @@ module.exports = function(grunt) {
         options: {
           separator: ';'
         },
-        src: ['<%=jsVendorDir%>angular/*.js', '<%=jsVendorDir%>angular-route/*.js', '!<%=jsVendorDir%>**/*.min.js'],
+        src: [
+          '<%=jsVendorDir%>angular/*.js',
+          '<%=jsVendorDir%>angular-route/*.js',
+          '<%=jsVendorDir%>angular-animate/*.js',
+          '!<%=jsVendorDir%>**/*.min.js'],
         dest: '<%=jsDistDir%>vendor.js'
       },
       scss: {
