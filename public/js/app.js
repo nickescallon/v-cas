@@ -5,6 +5,9 @@
     //modules
     'ngRoute',
 
+    //services
+    'vCas.services.nav',
+
     //controllers
     'vCas.controllers.home',
     'vCas.controllers.nav'
@@ -18,7 +21,7 @@
       .when('/', {
         template: '<div class="test">{{ homeController.testMessage }}</div>',
         controller: 'homeController',
-        controllerAs: 'homeController' 
+        controllerAs: 'homeController'
       })
       .otherwise({
         template: '<div class="otherwise">Otherwise!</div>'
