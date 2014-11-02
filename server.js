@@ -5,12 +5,14 @@ var app = express();
 
 app.set('port', process.env.PORT || 3000);
 
-app.use(express.static(__dirname + '/public'));
+// Servce static assets
 app.use('/dist',  express.static(__dirname + '/dist'));
 
-//add routes - catch-all to return index.html
+// Routes - catch-all to return index.html
+app.get('*', function (req, res) {
+  res.sendFile(__dirname + '/public/index.html');
+});
 
-//server
 var server = http.createServer(app);
 server.listen(app.get('port'), function() {
   console.log('app listenting on port: ' + app.get('port'));
