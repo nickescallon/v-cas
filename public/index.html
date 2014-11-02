@@ -14,12 +14,20 @@
   <div class="main-container">
 
     <nav ng-cloak ng-controller="navController as nc">
-      <div class="row" ng-repeat="option in nc.navOptions" ng-click="nc.routeTo(option)" ng-class="{ selected: nc.isCurrentPage(option) }">
-        {{option}}
+      <div class="primary">
+        <div class="row" ng-repeat="page in nc.pages" ng-click="nc.routeTo(page)" ng-class="{ selected: nc.isCurrentPage(page) }">
+          {{page}}
+        </div>
+      </div>
+
+      <div class="secondary" ng-show="nc.currentPage">
+        <div class="content">
+          something
+        </div>
       </div>
     </nav>
 
-    <div class="content">
+    <div class="view-content">
       <ng-view/>
     </div>
 

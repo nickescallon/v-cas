@@ -11,7 +11,7 @@
 
     Ctrl.currentPage = $location.path().substr(1).toLowerCase();
     Ctrl.isCurrentPage = isCurrentPage
-    Ctrl.navOptions = navService.pages;
+    Ctrl.pages = navService.pages;
     Ctrl.routeTo = routeTo;
 
     function isCurrentPage(page) {
