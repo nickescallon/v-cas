@@ -16,7 +16,7 @@
   .config(config)
   .run(run);
 
-  config.$inject = ['$locationProvider', '$routeProvider']
+  config.$inject = ['$locationProvider', '$routeProvider'];
 
   function config($locationProvider, $routeProvider) {
     $locationProvider.html5Mode(true);
@@ -33,7 +33,7 @@
       });
   };
 
-  run.$inject = ['$location', '$rootScope', 'navService']
+  run.$inject = ['$location', '$rootScope', 'navService'];
 
   function run($location, $rootScope, navService) {
     $rootScope.$on('$routeChangeSuccess', function() {

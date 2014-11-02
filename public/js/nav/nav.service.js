@@ -13,7 +13,7 @@
         'SERVICES',
         'CONTACT'
       ],
-      current: ''
+      current: null
     };
 
     var service = {
