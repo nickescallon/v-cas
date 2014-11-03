@@ -6,6 +6,9 @@
     'ngRoute',
     'ngAnimate',
 
+    //directives
+    'vCas.directives.gallery',
+
     //services
     'vCas.services.nav',
 
