@@ -24,12 +24,12 @@
     //Routes
     $routeProvider
       .when('/', {
-        template: '<div class="test">{{ homeController.testMessage }}</div>',
+        template: '<div>{{ homeController.testMessage }}</div>',
         controller: 'homeController',
         controllerAs: 'homeController'
       })
       .otherwise({
-        template: '<div class="otherwise">Otherwise!</div>'
+        template: '<div>Otherwise!</div>'
       });
   };
 

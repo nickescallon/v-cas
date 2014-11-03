@@ -11,24 +11,22 @@
 
   <div class="spacer"></div>
 
-  <div class="main-container">
+  <div class="main-container" ng-controller="navController as nc">
 
-    <nav ng-cloak ng-controller="navController as nc">
-      <div class="primary">
-        <div class="row" ng-repeat="page in nc.pages.all" ng-click="nc.routeTo(page)" ng-class="{ selected: nc.isCurrentPage(page) }">
-          {{page}}
-        </div>
-      </div>
-
-      <div class="secondary " ng-show="nc.pages.current">
-        <div class="content">
-          something
-        </div>
+    <nav>
+      <div class="row" ng-repeat="page in nc.pages.all" ng-click="nc.routeTo(page)" ng-class="{ selected: nc.isCurrentPage(page) }" ng-cloak>
+        {{page}}
       </div>
     </nav>
 
-    <div class="view-content">
+    <div class="view-content " ng-show="nc.pages.current">
       <ng-view/>
+    </div>
+
+    <div class="gallery-container">
+      <div class="test">
+        GALLERY DIRECTIVE
+      </div>
     </div>
 
   </div>

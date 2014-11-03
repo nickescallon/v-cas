@@ -30,32 +30,11 @@ footer {
   height: 500px;
 
   nav {
-    display: flex;
-
-    .primary {
-      position: relative;
-      height: 100%;
-      width: 175px;
-      background: $color-primary;
-      font-family: garamond;
-    }
-
-    .secondary {
-      width: 250px;
-      height: 100%;
-      background: $color-secondary;
-      font-family: garamond;
-    }
-    // Animations
-    .secondary.ng-hide-add.ng-hide-add-active,
-    .secondary.ng-hide-remove.ng-hide-remove-active {
-      -webkit-transition:all linear 0.7s;
-      transition:all linear 0.7s;
-    }
-
-    .secondary.ng-hide {
-      width: 0px;
-    }
+    position: relative;
+    height: 100%;
+    width: 175px;
+    background: $color-primary;
+    font-family: garamond;
 
     .row {
       padding: 20px 0px;
@@ -69,6 +48,22 @@ footer {
   }
 
   .view-content {
+    width: 250px;
+    height: 100%;
+    background: $color-secondary;
+  }
+
+  // Animations
+  .view-content.ng-hide-add.ng-hide-add-active,
+  .view-content.ng-hide-remove.ng-hide-remove-active {
+    -webkit-transition:all linear 0.7s;
+    transition:all linear 0.7s;
+  }
+  .view-content.ng-hide {
+    width: 0px;
+  }
+
+  .gallery-container {
     position: relative;
     padding-left: 15px;
     flex: 1;
