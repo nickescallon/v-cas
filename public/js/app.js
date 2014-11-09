@@ -6,10 +6,14 @@
     'ngRoute',
     'ngAnimate',
 
+    //constants
+    'vCas.constants.GALLERY_IMAGES',
+
     //directives
     'vCas.directives.gallery',
 
     //services
+    'vCas.services.gallery',
     'vCas.services.nav',
 
     //controllers
@@ -36,11 +40,13 @@
       });
   };
 
-  run.$inject = ['$location', '$rootScope', 'navService'];
+  run.$inject = ['$location', '$rootScope', 'galleryService', 'navService'];
 
-  function run($location, $rootScope, navService) {
+  function run($location, $rootScope, galleryService, navService) {
     $rootScope.$on('$routeChangeSuccess', function() {
-      navService.pages.current = $location.path().substr(1).toLowerCase();
+      var path = $location.path().substr(1).toLowerCase();
+      navService.pages.current = path;
+      galleryService.update(path);
     });
   };
 

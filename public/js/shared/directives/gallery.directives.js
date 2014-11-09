@@ -7,21 +7,18 @@
   function neGallery() {
     var directive = {
       restrict: 'E',
-      scope: {},
+      scope: {
+        images: '='
+      },
       replace: true,
-      template: '<div class="gallery"><img ng-repeat="picture in pictures" ng-src="{{ picture.url }}"/></div>',
-      link: link
+      template: '<div class="gallery"><img ng-repeat="image in images" ng-src="{{ image }}"/></div>',
+      // link: link
     };
     return directive;
 
-    function link(scope, element) {
-      scope.pictures = [
-        {url: 'http://veronicacastellucci.com/images/Acardi/acardi_1.jpeg'},
-        {url: 'http://veronicacastellucci.com/images/Hutchinson/hutchinson_4.jpeg'},
-        {url: 'http://veronicacastellucci.com/images/Gilbert/Gilbert_4.jpeg'},
-        {url: 'http://veronicacastellucci.com/images/Hutchinson/hutchinson_6.jpeg'},
-      ];
-    };
+    // function link(scope, element) {
+      //TODO ADD SCROLLING FUNCTIONALITY
+    // };
 
   };
 

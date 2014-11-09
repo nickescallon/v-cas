@@ -4,13 +4,15 @@
   angular.module('vCas.controllers.nav', [])
   .controller('navController', navController);
 
-  navController.$inject = ['$location', '$route', 'navService'];
+  navController.$inject = ['$location', '$route', 'galleryService', 'navService'];
 
-  function navController($location, $routeParams, navService) {
+  function navController($location, $routeParams, galleryService, navService) {
     var Ctrl = this;
 
-    Ctrl.pages = navService.pages
-    Ctrl.isCurrentPage = isCurrentPage
+    Ctrl.pages = navService.pages;
+    Ctrl.isCurrentPage = isCurrentPage;
+    Ctrl.gallery = galleryService.images;
+    console.log('GS IMAGES', Ctrl.gallery);
     Ctrl.routeTo = routeTo;
 
     function isCurrentPage(page) {

@@ -19,12 +19,12 @@
       </div>
     </nav>
 
-    <div class="view-content " ng-show="nc.pages.current">
+    <div class="view-content" ng-show="nc.pages.current">
       <ng-view/>
     </div>
 
     <div class="gallery-container">
-      <ne-gallery></ne-gallery>
+      <ne-gallery images="nc.gallery.urls"></ne-gallery>
     </div>
 
   </div>
