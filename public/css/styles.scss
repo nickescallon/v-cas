@@ -71,6 +71,20 @@ footer {
     display: -webkit-box;
     overflow: auto;
 
+    //TODO: pull this out to directive
+    .loading-overlay {
+      position: absolute;
+      top:0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-image: url("/images/spinner.gif");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: white;
+      opacity: .2;
+    }
+
     .gallery {
       display: flex;
       position: relative;
@@ -82,6 +96,16 @@ footer {
       img {
         height: 500px;
         padding-right: 15px;
+        -webkit-transition:all linear .5s;
+        transition:all linear .5s;
+      }
+
+      img.ng-enter, img.ng-leave.ng-leave-active {
+        opacity: 0;
+      }
+
+      img.ng-enter.ng-enter-active, img.ng-leave {
+        opacity: 1;
       }
     }
   }
