@@ -96,8 +96,8 @@ footer {
       img {
         height: 500px;
         padding-right: 15px;
-        -webkit-transition:all linear .5s;
-        transition:all linear .5s;
+        -webkit-transition:all linear .1s;
+        transition:all linear .1s;
       }
 
       img.ng-enter, img.ng-leave.ng-leave-active {
