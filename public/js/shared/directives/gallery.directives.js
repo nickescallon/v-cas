@@ -8,18 +8,17 @@
     var directive = {
       restrict: 'E',
       scope: {
-        images: '='
+        images: '=',
       },
       replace: true,
       template: '<div class="gallery"><img ng-repeat="image in images" ng-src="{{ image }}"/></div>',
-      // link: link
+      link: link
     };
     return directive;
 
-    // function link(scope, element) {
-      //TODO ADD SCROLLING FUNCTIONALITY
-    // };
+    function link(scope, element) {
+      //TODO: Add scrolling functionality
+    };
 
   };
-
 })();

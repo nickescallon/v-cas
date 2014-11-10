@@ -12,7 +12,6 @@
     Ctrl.pages = navService.pages;
     Ctrl.isCurrentPage = isCurrentPage;
     Ctrl.gallery = galleryService.images;
-    console.log('GS IMAGES', Ctrl.gallery);
     Ctrl.routeTo = routeTo;
 
     function isCurrentPage(page) {
