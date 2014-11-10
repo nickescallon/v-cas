@@ -9,7 +9,7 @@
       '/images/Gilbert_4.jpeg',
       '/images/hutchinson_6.jpeg'
     ],
-    about: [
+    absout: [
       '/images/acardi_2.jpeg',
       '/images/hutchinson_5.jpeg',
       '/images/Gilbert_5.jpeg',

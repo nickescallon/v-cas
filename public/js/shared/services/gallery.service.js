@@ -18,25 +18,25 @@
       update: update
     };
 
+    return service;
+
     function update(path) {
       var imagesToLoad = GALLERY_IMAGES[path] || GALLERY_IMAGES.home;
       var service = this;
 
-      service.images.urls = [];
-
-        service.images.loading = true
-        preloadAll(imagesToLoad)
-        .then(function() {
-          console.log('PROMISES RESOLVED', new Date());
-          service.images.urls = imagesToLoad;
-        })
-        .catch(function() {
-          // TODO: actually handle errors.
-          console.log('error preloading images');
-        })
-        .finally(function() {
-          service.images.loading = false;
-        });
+      service.images.loading = true
+      preloadAll(imagesToLoad)
+      .then(function() {
+        console.log('PROMISES RESOLVED', new Date());
+        service.images.urls = imagesToLoad;
+      })
+      .catch(function() {
+        // TODO: actually handle errors.
+        console.log('error preloading images');
+      })
+      .finally(function() {
+        service.images.loading = false;
+      });
     };
 
     function preloadAll(urls) {
@@ -67,8 +67,6 @@
 
       return deferred.promise
     }
-
-    return service;
   };
 
 })()
