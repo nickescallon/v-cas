@@ -13,10 +13,18 @@ body {
 
 header {
   height: 120px;
+  a {
+    img {
+      height: 120px;
+    }
+  }
 }
 
 footer {
   height: 120px;
+  padding: 5px 0px;
+  font-size: 80%;
+  text-align: center
 }
 
 .content {
@@ -96,12 +104,21 @@ footer {
       img {
         height: 500px;
         padding-right: 15px;
-        -webkit-transition:all linear .1s;
-        transition:all linear .1s;
+        -webkit-transition:all linear 1s;
+        transition:all linear 1s;
       }
 
       img.ng-enter, img.ng-leave.ng-leave-active {
         opacity: 0;
+      }
+
+      img.ng-enter-stagger {
+        -webkit-transition-delay: 0.1s;
+        transition-delay: 0.1s;
+
+        // To avoid CSS inheritance
+        -webkit-transition-duration: 0s;
+        transition-duration: 0s;
       }
 
       img.ng-enter.ng-enter-active, img.ng-leave {
