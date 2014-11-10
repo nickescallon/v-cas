@@ -7,6 +7,7 @@ app.set('port', process.env.PORT || 3000);
 
 // Servce static assets
 app.use('/dist',  express.static(__dirname + '/dist'));
+app.use('/images',  express.static(__dirname + '/public/images'));
 
 // Routes - catch-all to return index.html
 app.get('*', function (req, res) {
