@@ -70,4 +70,4 @@
       '/images/yermal_3.jpeg'
     ]
   });
-})()
+})();
