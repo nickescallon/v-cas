@@ -14,7 +14,7 @@ var gulp = require('gulp'),
 var sources = {
   app: {
     js: ['./public/js/**/*.js'],
-    scss: ['./public/css/styles.scss']
+    sass: ['./public/sass/main.scss']
   },
   images: ['./public/images/**/*.*'],
   index: ['./public/index.html'],
@@ -58,7 +58,7 @@ gulp.task('appJs', function() {
 
 // concat and compress application css
 gulp.task('appStyles', function() {
-  gulp.src(sources.app.scss)
+  gulp.src(sources.app.sass)
     .pipe(sass())
     .pipe(rename('v-cas.css'))
     //TODO: add minify & sourcemaps
