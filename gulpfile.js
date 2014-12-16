@@ -14,7 +14,7 @@ var gulp = require('gulp'),
 var sources = {
   app: {
     js: ['./public/js/**/*.js'],
-    sass: ['./public/sass/main.scss']
+    sass: ['./public/sass/**/*.scss']
   },
   images: ['./public/images/**/*.*'],
   index: ['./public/index.html'],
@@ -106,7 +106,7 @@ gulp.task('build', [
 //watch scripts, styles, and templates
 gulp.task('watch', function() {
   gulp.watch(sources.app.js, ['appJs']);
-  gulp.watch(sources.app.scss, ['appStyles']);
+  gulp.watch(sources.app.sass, ['appStyles']);
   gulp.watch(sources.images, ['images']);
   gulp.watch(sources.index, ['index']);
   gulp.watch(sources.templates, ['templates']);

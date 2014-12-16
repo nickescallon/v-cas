@@ -13,13 +13,18 @@
         images: '=',
       },
       replace: true,
-      template: '<div class="gallery"><img ng-repeat="image in displayedImages" ng-src="{{ image }}"/></div>',
+      template: '<div class="scroll-container"><div class="gallery"><img ng-repeat="image in displayedImages" ng-src="{{ image }}"/></div><div class="scroll left"></div><div class="scroll right"></div></div>',
       link: link
     };
     return directive;
 
     function link(scope, element) {
       //TODO: Add scrolling functionality
+      // var galleryElem = element[0].querySelector('.gallery');
+      // galleryElem.scrollLeft += 5;
+      //on hover of right element, += scrollLeft
+      //on hover of left element, -= scrollLeft
+
       scope.displayedImages = [];
 
       scope.$watch('images', function(newVals) {

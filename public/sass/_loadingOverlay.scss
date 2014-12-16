@@ -1,0 +1,13 @@
+//TODO: pull this out to directive
+.loading-overlay {
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("/images/spinner.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+  opacity: .2;
+}
