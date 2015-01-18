@@ -1,6 +1,7 @@
 // dependencies
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
+    flatten = require('gulp-flatten'),
     gulpFilter = require('gulp-filter'),
     mainBowerFiles = require('main-bower-files'),
     ngAnnotate = require('gulp-ng-annotate'),
@@ -70,6 +71,7 @@ gulp.task('appStyles', function() {
 // create angular templateCache
 gulp.task('templates', function() {
   gulp.src(sources.templates)
+  .pipe(flatten())
   .pipe(ngHtml2Js({
     moduleName: 'vCas'
   }))
