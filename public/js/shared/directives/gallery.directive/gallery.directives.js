@@ -13,7 +13,7 @@
         images: '=',
       },
       replace: true,
-      template: '<div class="scroll-container"><div class="gallery"><img ng-repeat="image in displayedImages" ng-src="{{ image }}"/></div><div class="scroll left"></div><div class="scroll right"></div></div>',
+      templateUrl: 'gallery.directive.template.html',
       link: link
     };
     return directive;
