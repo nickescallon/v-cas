@@ -22,6 +22,7 @@
       var scrollLimit;
       var scrollTimeout;
       var scrollSpeed = 0;
+      var scrollBarState = false;
 
       // selections
       var jsElem = element[0];
@@ -30,6 +31,9 @@
       var scrollRightElem = jsElem.querySelector('.scroll.right');
 
       // register handlers
+      // jsElem.addEventListener('mouseover', toggleScrollBars);
+      // jsElem.addEventListener('mouseout', toggleScrollBars);
+
       scrollLeftElem.addEventListener('mouseover', scrollLeft);
       scrollRightElem.addEventListener('mouseover', scrollRight);
 
@@ -48,10 +52,20 @@
         // Also helps to hide preloading
         scope.displayedImages = [];
         $timeout(function() {
+          galleryElem.scrollLeft = 0;
           scope.displayedImages = scope.images;
           $timeout( setScrollLimit(galleryElem) );
         }, 1000);
       };
+
+      // function toggleScrollBars() {
+      //   var opacity;
+      //   scrollBarState = !scrollBarState;
+      //   opacity = scrollBarState ? .5 : 0;
+
+      //   scrollLeftElem.style.opacity = opacity;
+      //   scrollRightElem.style.opacity = opacity;
+      // };
 
       function setScrollLimit(element) {
         return function() {
@@ -59,17 +73,28 @@
         }
       };
 
+      // refactor scrollLeft && scrollRight to one func?
       function scrollLeft() {
         if (galleryElem.scrollLeft > 0) {
+          if (scrollRightElem.style.opacity <= 0) {
+            scrollRightElem.style.opacity = .5;
+          }
           galleryElem.scrollLeft -= scrollSpeed;
           scrollTimeout = $timeout(scrollLeft, 10);
+        } else {
+          scrollLeftElem.style.opacity = 0;
         }
       };
 
       function scrollRight() {
         if (galleryElem.scrollLeft < scrollLimit) {
+          if (scrollRightElem.style.opacity <= 0) {
+            scrollRightElem.style.opacity = .5;
+          }
           galleryElem.scrollLeft += scrollSpeed;
           scrollTimeout = $timeout(scrollRight, 10);
+        } else {
+          scrollRightElem.style.opacity = 0;
         }
       };
 
