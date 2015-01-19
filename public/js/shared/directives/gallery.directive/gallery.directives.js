@@ -58,14 +58,14 @@
         }, 1000);
       };
 
-      // function toggleScrollBars() {
-      //   var opacity;
-      //   scrollBarState = !scrollBarState;
-      //   opacity = scrollBarState ? .5 : 0;
+      function toggleScrollBars() {
+        var opacity;
+        scrollBarState = !scrollBarState;
+        opacity = scrollBarState ? .5 : 0;
 
-      //   scrollLeftElem.style.opacity = opacity;
-      //   scrollRightElem.style.opacity = opacity;
-      // };
+        scrollLeftElem.style.opacity = opacity;
+        scrollRightElem.style.opacity = opacity;
+      };
 
       function setScrollLimit(element) {
         return function() {
@@ -73,28 +73,17 @@
         }
       };
 
-      // refactor scrollLeft && scrollRight to one func?
       function scrollLeft() {
         if (galleryElem.scrollLeft > 0) {
-          if (scrollRightElem.style.opacity <= 0) {
-            scrollRightElem.style.opacity = .5;
-          }
           galleryElem.scrollLeft -= scrollSpeed;
           scrollTimeout = $timeout(scrollLeft, 10);
-        } else {
-          scrollLeftElem.style.opacity = 0;
         }
       };
 
       function scrollRight() {
         if (galleryElem.scrollLeft < scrollLimit) {
-          if (scrollRightElem.style.opacity <= 0) {
-            scrollRightElem.style.opacity = .5;
-          }
           galleryElem.scrollLeft += scrollSpeed;
           scrollTimeout = $timeout(scrollRight, 10);
-        } else {
-          scrollRightElem.style.opacity = 0;
         }
       };
 
