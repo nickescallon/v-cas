@@ -21,6 +21,7 @@
     function link(scope, element) {
       var scrollLimit;
       var scrollTimeout;
+      var scrollSpeed = 0;
 
       // selections
       var jsElem = element[0];
@@ -31,6 +32,10 @@
       // register handlers
       scrollLeftElem.addEventListener('mouseover', scrollLeft);
       scrollRightElem.addEventListener('mouseover', scrollRight);
+
+      scrollLeftElem.addEventListener('mousemove', function(e) { updateScrollSpeed(e, 'left') });
+      scrollRightElem.addEventListener('mousemove', function(e) { updateScrollSpeed(e, 'right') });
+
       scrollLeftElem.addEventListener('mouseout', stopScroll);
       scrollRightElem.addEventListener('mouseout', stopScroll);
 
@@ -44,30 +49,38 @@
         scope.displayedImages = [];
         $timeout(function() {
           scope.displayedImages = scope.images;
-          scope.scrollLimit = findScrollLimit(galleryElem)
+          $timeout( setScrollLimit(galleryElem) );
         }, 1000);
       };
 
-      function findScrollLimit(element) {
-        return element.scrollWidth - element.clientWidth;
+      function setScrollLimit(element) {
+        return function() {
+          scrollLimit = element.scrollWidth - element.clientWidth;
+        }
       };
 
       function scrollLeft() {
-        if (galleryElem.scrollLeft <= 0) {
-          return;
+        if (galleryElem.scrollLeft > 0) {
+          galleryElem.scrollLeft -= scrollSpeed;
+          scrollTimeout = $timeout(scrollLeft, 10);
         }
-
-        galleryElem.scrollLeft -= 5;
-        scrollTimeout = $timeout(scrollLeft, 10);
       };
 
       function scrollRight() {
-        if (galleryElem.scrollLeft >= scrollLimit) {
-          return;
+        if (galleryElem.scrollLeft < scrollLimit) {
+          galleryElem.scrollLeft += scrollSpeed;
+          scrollTimeout = $timeout(scrollRight, 10);
         }
+      };
 
-        galleryElem.scrollLeft += 5;
-        scrollTimeout = $timeout(scrollRight, 10);
+      function updateScrollSpeed(mouseEvent, direction) {
+        var speed;
+        if (direction === 'left') {
+          speed = (mouseEvent.target.offsetWidth - mouseEvent.offsetX);
+        } else if (direction === 'right') {
+          speed = mouseEvent.offsetX;
+        }
+        scrollSpeed = speed / 10;
       };
 
       function stopScroll() {

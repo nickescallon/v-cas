@@ -44,7 +44,7 @@
       for (var i=0; i<urls.length; i++) {
         promises.push( preloadImage(urls[i]) );
       }
-      console.log('PROMISES', promises, new Date());
+
       return promises.length ? $q.all(promises) : $q.reject();
     };
 
