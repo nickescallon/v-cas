@@ -18,12 +18,15 @@
 
   &.left {
     left: 0;
+    cursor: w-resize;
   }
 
   &.right {
     right: 0;
+    cursor: e-resize;
   }
 
+  // comment this out when implementing scrollbar toggle
   &:hover {
     opacity: .5
   }
